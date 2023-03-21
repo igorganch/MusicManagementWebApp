@@ -1,0 +1,60 @@
+﻿@{ ViewBag.Title = "Home Page"; }
+@{ var userAccount = new W2022IG.Controllers.RequestUser(User as System.Security.Claims.ClaimsPrincipal); }
+
+<div class="jumbotron">
+    <h1>Music Management App</h1>
+    <p class="lead">User's are able to view tracks, albums, artists all on one website. Different user roles have different privileges. Admin's have all privileges. Clerk's are able to add/edit/delete track records in the albums. Executives are only able to add/edit track snippets, Artists, media items such as Photos, Files, and videos. Coordinator's are able to add album's. The app also implements security concepts. </p>
+    <p><a href="http://musicmanagementweb.azurewebsites.net" class="btn btn-primary btn-lg">Music Management App on Azure &raquo;</a></p>
+</div>
+
+<div class="row">
+    @if (!Request.IsAuthenticated)
+    {
+<div class="col-md-4">
+    <h2>Getting started</h2>
+    <p>
+        Click on register to get started! <br /> Your account is always saved.
+    </p>
+    <div class="btn btn-default">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) &raquo;</div>
+</div>
+}
+else
+{
+<div class="col-md-4">
+    <h2>Getting started</h2>
+    <p>
+       Feel free to explore. 
+    </p>
+</div>
+
+}
+    <div class="col-md-4">
+        <h2>Return to my portfolio</h2>
+        <p>
+            I have more projects!
+        </p>
+        <p><a class="btn btn-default" href="https://www.igancharenka.com/">Portfolio &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Technolgies Used</h2>
+        <ul>
+            <li>
+                ASP.NET
+            </li>
+            <li>
+                MVC
+            </li>
+            <li>
+                Entity Framework
+            </li>
+            <li>
+                SQL
+            </li>
+            <li>
+                Azure
+            </li>
+
+        </ul>
+    </div>
+
+</div>
